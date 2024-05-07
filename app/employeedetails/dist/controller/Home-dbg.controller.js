@@ -90,7 +90,6 @@ sap.ui.define([
                     ophoneNumber = oView.byId("iPhoneFilterValue").destroyTokens();
 
             },
-            // routing
             onSelectEmployee:function (oEvent) {
                 // debugger
                 const { ID, fName } = oEvent.getSource().getSelectedItem().getBindingContext().getObject();
