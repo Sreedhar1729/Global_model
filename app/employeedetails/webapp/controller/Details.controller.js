@@ -1,6 +1,7 @@
 sap.ui.define(
     [
-        "sap/ui/core/mvc/Controller"
+      "./BaseController"
+        // "sap/ui/core/mvc/Controller"
     ],
     function(BaseController) {
       "use strict";
@@ -14,6 +15,7 @@ sap.ui.define(
         onEmployeeDetailsLoad: function(oEvent ){
              
             const { empId } = oEvent.getParameter("arguments");
+            this.ID = empId;
             const sRouterName = oEvent.getParameter("name");
             //const oForm = this.getView().byId("idEmployeeDetailsForm");
             const oObject = this.getView().byId("idEmployeeDetailsObjectPage");
@@ -39,3 +41,4 @@ sap.ui.define(
 
         
   
+    

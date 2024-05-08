@@ -28,7 +28,7 @@ sap.ui.define([
                     phone: ""
                 });
                 this.getView().setModel(oLocalModel, "localModel");
-
+// tokens
                 const oView1 = this.getView();
                 const oMulti = oView1.byId("multiInput1");
                 const oMulti1 = oView1.byId("idLNameFilterValue");
