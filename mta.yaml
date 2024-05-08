@@ -70,9 +70,23 @@ modules:
       - comappemployeedetails.zip
       name: comappemployeedetails
       target-path: resources/
+    - artifacts:
+      - comappemployeefiorielem.zip
+      name: comappemployeefiorielem
+      target-path: resources/
 - name: comappemployeedetails
   type: html5
   path: app/employeedetails
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: comappemployeefiorielem
+  type: html5
+  path: app/employeefiorielem
   build-parameters:
     build-result: dist
     builder: custom

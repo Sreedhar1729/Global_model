@@ -1,0 +1,199 @@
+<mvc:View
+    controllerName="com.app.employeedetails.controller.Details"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    xmlns:u="sap.uxap"
+    xmlns:form="sap.ui.layout.form"
+>
+    <u:ObjectPageLayout
+        id="idEmployeeDetailsObjectPage"
+        beforeNavigate="onBeforeNavigate"
+        enableLazyLoading="true"
+		useIconTabBar="true"
+		showTitleInHeaderContent="true"
+		upperCaseAnchorBar="false"
+		sectionChange="onSectionChange"
+    >
+        <u:headerTitle>
+            <u:ObjectPageDynamicHeaderTitle
+                id="_IDGenObjectPageDynamicHeaderTitle1"
+            >
+                <u:expandedHeading>
+                    <Title
+                        id="_IDGenTitle1"
+                        text="{fName} {lName}"
+                        wrapping="true"
+                    />
+                </u:expandedHeading>
+
+
+
+                <u:expandedContent>
+                    <Text id="_IDGenTitle2"
+                    
+                        text="{email}"
+                        wrapping="true"
+                    />
+                </u:expandedContent>
+                <u:actions>
+                    <Button
+                        id="_IDGenButton1"
+                        text="Edit"
+                        type="Emphasized"
+                        press="onEdit"
+                    />
+                    <!-- <Button
+                        id="_IDGenButton2"
+                        type="Transparent"
+                        text="Delete"
+                    /> -->
+                    <Button
+                        id="_IDGenButton3"
+                        type="Transparent"
+                        text="Copy"
+                    />
+                    <OverflowToolbarButton
+                        id="_IDGenOverflowToolbarButton1"
+                        icon="sap-icon://action"
+                        type="Transparent"
+                        text="Share"
+                        tooltip="action"
+                    />
+                <!-- </u:actions>
+
+                  <u:actions> -->
+                    <Button
+                        id="idBtnDelete"
+                        icon="sap-icon://delete"
+                        tooltip="Delete Employee"
+                        type="Negative"
+                        press="onDeleteEmployee"
+                    />
+                </u:actions>
+            </u:ObjectPageDynamicHeaderTitle>
+        </u:headerTitle>
+
+        <u:sections>
+            <u:ObjectPageSection
+                titleUppercase="true"
+                id="generalInfo"
+                title="General Information"
+            >
+                <u:subSections>
+                    <u:ObjectPageSubSection id="_IDGenObjectPageSubSection1">
+                        <u:blocks>
+                            <form:SimpleForm
+                                id="idEmployeeDetailsForm"
+                                editable="false"
+                                layout="ColumnLayout"
+                                columnsM="2"
+                                columnsL="3"
+                                columnsXL="4"
+
+                            >
+                                <Label
+                                    id="idNameLabel"
+                                    text="Name"
+                                />
+                                <Text
+                                    id="idNameText"
+                                    text="{fName} {lName}"
+                                />
+                                <Label
+                                    id="idEmailLabel"
+                                    text="Email"
+                                />
+                                <Text
+                                    id="idEmailText"
+                                    text="{email}"
+                                />
+                                <Label
+                                    id="idPhoneLabel"
+                                    text="Phone"
+                                />
+                                <Text
+                                    id="idPhoneText"
+                                    text="{phone}"
+                                />
+                            </form:SimpleForm>
+                        </u:blocks>
+                    </u:ObjectPageSubSection>
+                </u:subSections>
+            </u:ObjectPageSection>
+ 
+            <u:ObjectPageSection
+                id="idAddressSection"
+                title="Address Details"
+                titleUppercase="true"
+            >
+                <u:subSections>
+                    <u:ObjectPageSubSection id="_IDGenObjectPageSubSection2">
+                        <u:blocks>
+                             <core:Fragment
+                                type="XML"
+                                fragmentName="com.app.employeedetails.fragments.Address"
+                            />
+                        </u:blocks>
+                    </u:ObjectPageSubSection>
+                </u:subSections>
+            </u:ObjectPageSection>
+
+			<u:ObjectPageSection
+                titleUppercase="true"
+                id="SalaryInfo"
+                title="Salary Information"
+            >
+                <u:subSections>
+                    <u:ObjectPageSubSection id="_IDGenObjectPageSubSection3" >
+                        <u:blocks>
+                         <core:Fragment
+                                type="XML"
+                                fragmentName="com.app.employeedetails.fragments.Salary"
+                            />
+                             
+                        </u:blocks>
+                    </u:ObjectPageSubSection>
+                </u:subSections>
+            </u:ObjectPageSection>
+
+            <u:ObjectPageSection id="_IDGenObjectPageSection1"
+                titleUppercase="true"
+                
+                title="Department Information"
+            >
+                <u:subSections>
+                    <u:ObjectPageSubSection id="_IDGenObjectPageSubSection4"  >
+                        <u:blocks>
+                        <core:Fragment
+                                type="XML"
+                                fragmentName="com.app.employeedetails.fragments.Department"
+                            />
+                         
+                            
+                        </u:blocks>
+                    </u:ObjectPageSubSection>
+                </u:subSections>
+            </u:ObjectPageSection>
+<u:ObjectPageSection id="_IDGenObjectPageSection2"
+                titleUppercase="true"
+                
+                title="Designation Information"
+            >
+                <u:subSections>
+                    <u:ObjectPageSubSection id="_IDGenObjectPageSubSection5"  >
+                        <u:blocks>
+                        <core:Fragment
+type="XML"
+fragmentName="com.app.employeedetails.fragments.Designation"/>
+                            
+                        </u:blocks>
+                    </u:ObjectPageSubSection>
+                </u:subSections>
+            </u:ObjectPageSection>
+        </u:sections>
+    </u:ObjectPageLayout>
+</mvc:View>

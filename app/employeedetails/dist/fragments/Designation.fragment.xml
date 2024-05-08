@@ -1,0 +1,36 @@
+<core:FragmentDefinition 
+xmlns:core="sap.ui.core"
+xmlns:form="sap.ui.layout.form"
+xmlns="sap.m"
+>
+ <form:SimpleForm id="_IDGenSimpleForm3" 
+                            
+                                editable="false"
+                                layout="ResponsiveGridLayout"
+                                columnsM="2"
+                                columnsL="3"
+                                columnsXL="4"
+
+                            >
+                                <Label id="_IDGenLabel8"   
+                                    text="name"
+                                />
+                                <Text id="_IDGenText8"   
+                                text="{designation/name}"
+                                />
+								 <Label id="_IDGenLabel9"   
+                                    text="description"
+                                />
+                                <Text id="_IDGenText9"   
+                                text="{designation/description}"
+                                />
+								 <Label id="_IDGenLabel10"   
+                                    text="level"
+                                />
+                                <Text id="_IDGenText10"   
+                                text="{designation/level}"
+                                />
+                                
+                            </form:SimpleForm>
+
+</core:FragmentDefinition>
