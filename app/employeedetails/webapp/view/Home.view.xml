@@ -158,6 +158,12 @@
                     </OverflowToolbar>
                 </headerToolbar>
                 <columns>
+                <Column >
+                        <Title
+                            
+                            text="ID"
+                        />
+                    </Column>
                     <Column id="idNameCol">
                         <Title
                             id="idNameColTitle"
@@ -186,12 +192,21 @@
                         <Title
                             id="idPhoneColTitle"
                             text="Phone Number"
+                        
                         />
                     </Column>
+                    <Column id="IdReservedBooksActions">
+                    <Title
+                        id="IdReservedBooksActionsCol"
+                        text="Actions"
+                    />
+                </Column>
+
                 </columns>
                 <items>
                     <ColumnListItem id="idEmployeeTableColListItem" type="Navigation">
                         <cells>
+                        <Text text="{ID}"></Text>
                             <Text
                                 id="idNameColValue"
                                 text="{fName} {lName}"
@@ -208,10 +223,19 @@
                                 id="idEmailColValue"
                                 text="{email}"
                             />
-                            <Text
+                            <Input
                                 id="idPhoneColValue"
-                                text="{phone}"
+                                value="{phone}"
+                                editable = "false"
                             />
+<HBox id="idReservedBooksButton1">
+                            <Button
+                                id="idReservedBooksButton"
+                                icon="sap-icon://add"
+                                text="ISSUE"
+                                press="RDEL"
+                            />
+                        </HBox>
                         </cells>
                     </ColumnListItem>
                 </items>

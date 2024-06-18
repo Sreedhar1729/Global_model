@@ -18,6 +18,7 @@ sap.ui.define([
 
         return Controller.extend("com.app.employeedetails.controller.Home", {
             onInit: function () {
+                // this.onReadAll();
                 const oLocalModel = new  sap.ui.model.json.JSONModel({
                     fName: "",
                     lName: "",
@@ -99,6 +100,22 @@ sap.ui.define([
                     empName: fName
                 })
             },
+            onReadAll:function(){
+//                 var that = this;
+//                 var oModel = this.getOwnerComponent().getModel();
+//                 oModel.read("/Employee",{
+//                     success:function(oData)
+//                     {
+//                         console.log(oData);
+//                         var Jmodel = new sap.ui.json.JSONModel(oData);
+//                         that.getView().byId("idEmployeeTable").setModel(Jmodel);
+
+//                     },error:function(oError){
+// console.log(oError)
+//                     }
+//                 })
+
+            },
             onCreateBtnPress: async function () {
                 if (!this.oCreateEmployeeDialog) {
                     // this.oCreateEmployeeDialog = await Fragment.load({
@@ -129,6 +146,35 @@ sap.ui.define([
                 } catch (error) {
                     this.oCreateEmployeeDialog.close();
                     sap.m.MessageBox.error("Some technical Issue");
+                }
+            },
+            RDEL:function(oEvent){
+                // for Editing
+                debugger
+                var oModel = this.getOwnerComponent().getModel();
+                var oModel = new sap.ui.model.odata.v2.ODataModel("https://port4004-workspaces-ws-7gb5l.us10.trial.applicationstudio.cloud.sap/v2/EmployeeSRV/");
+                // oModel.setUserBatch(false);
+                if(oEvent.getSource().getText() === "ISSUE")
+                {
+                    oEvent.getSource().setText("Submit")
+                    oEvent.getSource().getParent().getParent().getCells()[5].setEditable(true);
+                }
+                else{
+                    debugger
+                    oEvent.getSource().setText("ISSUE")
+                    oEvent.getSource().getParent().getParent().getCells()[5].setEditable(false);
+                    var oInput = oEvent.getSource().getParent().getParent().getCells()[5].getValue();
+                    var oId = oEvent.getSource().getBindingContext().getProperty("ID");
+                    console.log(oId)
+                    oModel.update("/Employee("+oId+ ")",{phone:oInput},{
+                        sucess:function()
+                        {
+                        
+                        },error:function(e)
+                        {
+                            console.log(e);
+                        }
+                    })
                 }
             }
 
